@@ -9,3 +9,22 @@ plugins {
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }
+
+tasks.register("installLocalGitHook", type = Copy::class) {
+    from("${rootProject.rootDir}/scripts/pre-commit")
+    into("${rootProject.rootDir}/.git/hooks") {
+        fileMode = 493
+    }
+    destinationDir = File("${rootProject.rootDir}/.git/hooks")
+}
+
+tasks.register("filePermission", type = Exec::class) {
+    dependsOn(":installLocalGitHook")
+    commandLine = listOf("chmod", "755", "${rootProject.rootDir}/.git/hooks/pre-commit")
+}
+
+
+afterEvaluate {
+    tasks["clean"].dependsOn(":filePermission")
+}
+

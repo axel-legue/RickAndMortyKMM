@@ -1,15 +1,43 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("io.gitlab.arturbosch.detekt") version "1.22.0-RC2"
+}
+
+detekt {
+    buildUponDefaultConfig = true
+    allRules = false
+    config = files("${rootProject.rootDir}/config/detekt.yml")
+}
+
+dependencies {
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.22.0-RC2")
+}
+
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    reports {
+        html.required.set(true) // observe findings in your browser with structure and code snippets
+        html.outputLocation.set(file("${rootProject.rootDir}/reports/detekt/detekt.html"))
+        txt.required.set(true) // similar to the console output, contains issue signature to manually edit baseline files
+        txt.outputLocation.set(file("${rootProject.rootDir}/reports/detekt/detekt.txt"))
+    }
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    jvmTarget = "11"
+}
+tasks.withType<io.gitlab.arturbosch.detekt.DetektCreateBaselineTask>().configureEach {
+    jvmTarget = "11"
 }
 
 android {
     namespace = "com.axel.legue.whatmovieskmm.android"
-    compileSdk = 32
+    compileSdk = 33
     defaultConfig {
         applicationId = "com.axel.legue.whatmovieskmm.android"
         minSdk = 25
-        targetSdk = 32
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
     }
@@ -33,10 +61,14 @@ android {
 
 dependencies {
     implementation(project(":shared"))
-    implementation("androidx.compose.ui:ui:1.2.1")
-    implementation("androidx.compose.ui:ui-tooling:1.2.1")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.2.1")
-    implementation("androidx.compose.foundation:foundation:1.2.1")
-    implementation("androidx.compose.material:material:1.2.1")
-    implementation("androidx.activity:activity-compose:1.5.1")
+    with(AndroidDependencies) {
+        implementation(ui)
+        implementation(uiTooling)
+        implementation(uiToolingPreview)
+        implementation(foundation)
+        implementation(material)
+        implementation(activityCompose)
+        implementation(navigationCompose)
+        implementation(AndroidDependencies.coroutinesAndroid)
+    }
 }

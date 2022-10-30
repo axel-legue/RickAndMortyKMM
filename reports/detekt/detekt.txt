@@ -1,0 +1,2 @@
+FinalNewline - [] at /Users/axel/StudioProjects/WhatMoviesKMM/androidApp/src/main/java/com/axel/legue/whatmovieskmm/android/MainActivity.kt:1:1 - Signature=com.axel.legue.whatmovieskmm.android.MainActivity.kt:1
+NewLineAtEndOfFile - [MainActivity.kt] at /Users/axel/StudioProjects/WhatMoviesKMM/androidApp/src/main/java/com/axel/legue/whatmovieskmm/android/MainActivity.kt:188:2 - Signature=MainActivity.kt$com.axel.legue.whatmovieskmm.android.MainActivity.kt
