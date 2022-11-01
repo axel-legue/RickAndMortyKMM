@@ -69,6 +69,6 @@ dependencies {
         implementation(material)
         implementation(activityCompose)
         implementation(navigationCompose)
-        implementation(AndroidDependencies.coroutinesAndroid)
+        implementation(coroutinesAndroid)
     }
 }

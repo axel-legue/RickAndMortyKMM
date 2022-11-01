@@ -8,7 +8,7 @@ object Versions {
     const val uiTooling = "1.3.0"
     const val uiToolingPreview = "1.3.0"
     const val foundation = "1.3.0"
-    const val material = "1.3.0"
+    const val material = "1.0.0"
     const val activityCompose = "1.6.1"
     const val navigationCompose = "2.5.3"
 }
@@ -50,7 +50,7 @@ object AndroidDependencies {
     const val uiTooling = "androidx.compose.ui:ui-tooling:${Versions.uiTooling}"
     const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.uiToolingPreview}"
     const val foundation = "androidx.compose.foundation:foundation:${Versions.foundation}"
-    const val material = "androidx.compose.material:material:${Versions.material}"
+    const val material = "androidx.compose.material3:material3:${Versions.material}"
     const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
     const val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navigationCompose}"
     const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
