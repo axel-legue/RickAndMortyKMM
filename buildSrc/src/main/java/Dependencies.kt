@@ -11,6 +11,7 @@ object Versions {
     const val material = "1.0.0"
     const val activityCompose = "1.6.1"
     const val navigationCompose = "2.5.3"
+    const val coil = "2.2.2"
 }
 
 object MultiPlatformDependencies {
@@ -26,7 +27,6 @@ object MultiPlatformDependencies {
     object Koin {
         const val core = "io.insert-koin:koin-core:${Versions.koin}"
         const val test = "io.insert-koin:koin-test:${Versions.koin}"
-        const val android = "io.insert-koin:koin-android:${Versions.koin}"
     }
 
     object Ktor {
@@ -54,4 +54,7 @@ object AndroidDependencies {
     const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
     const val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navigationCompose}"
     const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+    const val coil = "io.coil-kt:coil-compose:${Versions.coil}"
+    const val koin = "io.insert-koin:koin-android:${Versions.koin}"
+    const val koinCompose = "io.insert-koin:koin-androidx-compose:${Versions.koin}"
 }

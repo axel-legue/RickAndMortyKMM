@@ -1,3 +1,2 @@
-NoUnusedImports - [] at /Users/axel/StudioProjects/WhatMoviesKMM/androidApp/src/main/java/com/axel/legue/whatmovieskmm/android/ui/navigation/Navigation.kt:12:1 - Signature=com.axel.legue.whatmovieskmm.android.ui.navigation.Navigation.kt:12
-Wrapping - [] at /Users/axel/StudioProjects/WhatMoviesKMM/androidApp/src/main/java/com/axel/legue/whatmovieskmm/android/MainActivity.kt:75:42 - Signature=com.axel.legue.whatmovieskmm.android.MainActivity.kt:75
-ParameterListWrapping - [] at /Users/axel/StudioProjects/WhatMoviesKMM/androidApp/src/main/java/com/axel/legue/whatmovieskmm/android/MainActivity.kt:82:36 - Signature=com.axel.legue.whatmovieskmm.android.MainActivity.kt:82
+FinalNewline - [] at /Users/axel/StudioProjects/RickAndMortyKMM/androidApp/src/main/java/com/axel/legue/whatmovieskmm/android/ui/screens/HomeScreen.kt:1:1 - Signature=com.axel.legue.whatmovieskmm.android.ui.screens.HomeScreen.kt:1
+NewLineAtEndOfFile - [HomeScreen.kt] at /Users/axel/StudioProjects/RickAndMortyKMM/androidApp/src/main/java/com/axel/legue/whatmovieskmm/android/ui/screens/HomeScreen.kt:128:2 - Signature=HomeScreen.kt$com.axel.legue.whatmovieskmm.android.ui.screens.HomeScreen.kt

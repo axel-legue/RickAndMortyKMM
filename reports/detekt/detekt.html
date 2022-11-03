@@ -157,11 +157,11 @@
 
 <div>
   <ul>
-    <li>87 number of properties</li>
-    <li>10 number of functions</li>
+    <li>88 number of properties</li>
+    <li>13 number of functions</li>
     <li>8 number of classes</li>
-    <li>3 number of packages</li>
-    <li>10 number of kt files</li>
+    <li>4 number of packages</li>
+    <li>11 number of kt files</li>
   </ul>
 </div>
 
@@ -170,67 +170,46 @@
 
 <div>
   <ul>
-    <li>615 lines of code (loc)</li>
-    <li>531 source lines of code (sloc)</li>
-    <li>404 logical lines of code (lloc)</li>
+    <li>753 lines of code (loc)</li>
+    <li>664 source lines of code (sloc)</li>
+    <li>485 logical lines of code (lloc)</li>
     <li>33 comment lines of code (cloc)</li>
-    <li>25 cyclomatic complexity (mcc)</li>
+    <li>29 cyclomatic complexity (mcc)</li>
     <li>23 cognitive complexity</li>
-    <li>3 number of total code smells</li>
-    <li>6% comment source ratio</li>
-    <li>61 mcc per 1,000 lloc</li>
-    <li>7 code smells per 1,000 lloc</li>
+    <li>2 number of total code smells</li>
+    <li>4% comment source ratio</li>
+    <li>59 mcc per 1,000 lloc</li>
+    <li>4 code smells per 1,000 lloc</li>
   </ul>
 </div>
 
 
 <h2>Findings</h2>
-<div>Total: 3
-  <h3>formatting: 3</h3>
-  <details id="NoUnusedImports" open="open">
-    <summary class="rule-container"><span class="rule">NoUnusedImports: 1 </span><span class="description">Detects unused imports</span></summary>
-<a href="https://detekt.dev/docs/rules/formatting#nounusedimports">Documentation</a>
+<div>Total: 2
+  <h3>formatting: 1</h3>
+  <details id="FinalNewline" open="open">
+    <summary class="rule-container"><span class="rule">FinalNewline: 1 </span><span class="description">Detects missing final newlines</span></summary>
+<a href="https://detekt.dev/docs/rules/formatting#finalnewline">Documentation</a>
     <ul>
-      <li><span class="location">/Users/axel/StudioProjects/WhatMoviesKMM/androidApp/src/main/java/com/axel/legue/whatmovieskmm/android/ui/navigation/Navigation.kt:12:1</span><span class="message">Unused import</span>
-        <pre><code><span class="lineno">   9 </span>import androidx.compose.ui.Modifier
-<span class="lineno">  10 </span>import androidx.compose.ui.res.painterResource
-<span class="lineno">  11 </span>import androidx.compose.ui.res.stringResource
-<span class="lineno">  12 </span><span class="error">i</span>mport androidx.compose.ui.text.font.FontWeight
-<span class="lineno">  13 </span>
-<span class="lineno">  14 </span>@Composable
-<span class="lineno">  15 </span>fun NavigationIcon(modifier: Modifier = Modifier, @DrawableRes iconRes: Int, selected: Boolean) {
+      <li><span class="location">/Users/axel/StudioProjects/RickAndMortyKMM/androidApp/src/main/java/com/axel/legue/whatmovieskmm/android/ui/screens/HomeScreen.kt:1:1</span><span class="message">File must end with a newline (\n)</span>
+        <pre><code><span class="lineno">   1 </span><span class="error">p</span>ackage com.axel.legue.whatmovieskmm.android.ui.screens
+<span class="lineno">   2 </span>
+<span class="lineno">   3 </span>import androidx.compose.foundation.horizontalScroll
+<span class="lineno">   4 </span>import androidx.compose.foundation.layout.Arrangement
 </code></pre>
       </li>
     </ul>
   </details>
-  <details id="ParameterListWrapping" open="open">
-    <summary class="rule-container"><span class="rule">ParameterListWrapping: 1 </span><span class="description">Detects mis-aligned parameter lists</span></summary>
-<a href="https://detekt.dev/docs/rules/formatting#parameterlistwrapping">Documentation</a>
+  <h3>style: 1</h3>
+  <details id="NewLineAtEndOfFile" open="open">
+    <summary class="rule-container"><span class="rule">NewLineAtEndOfFile: 1 </span><span class="description">Checks whether files end with a line separator.</span></summary>
+<a href="https://detekt.dev/docs/rules/style#newlineatendoffile">Documentation</a>
     <ul>
-      <li><span class="location">/Users/axel/StudioProjects/WhatMoviesKMM/androidApp/src/main/java/com/axel/legue/whatmovieskmm/android/MainActivity.kt:82:36</span><span class="message">Parameter should be on a separate line (unless all parameters can fit a single line)</span>
-        <pre><code><span class="lineno">  79 </span>
-<span class="lineno">  80 </span>@Composable
-<span class="lineno">  81 </span>private fun WhatMoviesNavHost(
-<span class="lineno">  82 </span>    modifier: Modifier = Modifier, <span class="error">n</span>avController: NavHostController
-<span class="lineno">  83 </span>) {
-<span class="lineno">  84 </span>    NavHost(
-<span class="lineno">  85 </span>        navController = navController, startDestination = HomeTabScreen.Home.route, modifier = modifier
-</code></pre>
-      </li>
-    </ul>
-  </details>
-  <details id="Wrapping" open="open">
-    <summary class="rule-container"><span class="rule">Wrapping: 1 </span><span class="description">Reports missing newlines (e.g. between parentheses of a multi-line function call</span></summary>
-<a href="https://detekt.dev/docs/rules/formatting#wrapping">Documentation</a>
-    <ul>
-      <li><span class="location">/Users/axel/StudioProjects/WhatMoviesKMM/androidApp/src/main/java/com/axel/legue/whatmovieskmm/android/MainActivity.kt:75:42</span><span class="message">Missing newline after &quot;,&quot;</span>
-        <pre><code><span class="lineno">  72 </span>        WhatMoviesNavHost(
-<span class="lineno">  73 </span>            modifier = Modifier
-<span class="lineno">  74 </span>                .padding(innerPadding)
-<span class="lineno">  75 </span>                .navigationBarsPadding(),<span class="error"> </span>navController = navController
-<span class="lineno">  76 </span>        )
-<span class="lineno">  77 </span>    }
-<span class="lineno">  78 </span>}
+      <li><span class="location">/Users/axel/StudioProjects/RickAndMortyKMM/androidApp/src/main/java/com/axel/legue/whatmovieskmm/android/ui/screens/HomeScreen.kt:128:2</span><span class="message">The file /Users/axel/StudioProjects/RickAndMortyKMM/androidApp/src/main/java/com/axel/legue/whatmovieskmm/android/ui/screens/HomeScreen.kt is not ending with a new line.</span>
+        <pre><code><span class="lineno"> 125 </span>            }
+<span class="lineno"> 126 </span>        }
+<span class="lineno"> 127 </span>    )
+<span class="lineno"> 128 </span>}
 </code></pre>
       </li>
     </ul>
@@ -238,7 +217,7 @@
 </div>
 
 
-generated with <a href="https://detekt.dev/">detekt version 1.22.0-RC2</a> on 2022-11-01 00:27:10 UTC.
+generated with <a href="https://detekt.dev/">detekt version 1.22.0-RC2</a> on 2022-11-04 17:27:59 UTC.
 
 </body>
 </html>

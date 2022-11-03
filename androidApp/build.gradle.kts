@@ -70,5 +70,8 @@ dependencies {
         implementation(activityCompose)
         implementation(navigationCompose)
         implementation(coroutinesAndroid)
+        implementation(coil)
+        implementation(koin)
+        implementation(koinCompose)
     }
 }
