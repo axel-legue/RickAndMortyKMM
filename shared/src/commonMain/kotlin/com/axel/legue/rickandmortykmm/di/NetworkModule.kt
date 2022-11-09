@@ -1,8 +1,8 @@
 package com.axel.legue.rickandmortykmm.di
 
 import com.axel.legue.rickandmortykmm.data.datasources.CharactersRepositoryImpl
-import com.axel.legue.rickandmortykmm.data.network.CharactersServiceImpl
-import com.axel.legue.rickandmortykmm.data.network.CharactersServices
+import com.axel.legue.rickandmortykmm.data.network.ApiServiceImpl
+import com.axel.legue.rickandmortykmm.data.network.ApiService
 import com.axel.legue.rickandmortykmm.domain.repositories.CharactersRepository
 import com.axel.legue.rickandmortykmm.presentation.SharedCharactersPresenter
 import io.github.aakira.napier.Napier
@@ -43,7 +43,7 @@ fun networkModule(enableNetworkLogs: Boolean = true) = module {
         }
     }
 
-    single<CharactersServices> { CharactersServiceImpl(httpClient = get()) }
+    single<ApiService> { ApiServiceImpl(httpClient = get()) }
     single<CharactersRepository> { CharactersRepositoryImpl(charactersServices = get()) }
     single { SharedCharactersPresenter(upcomingMoviesRepository = get()) }
 }
