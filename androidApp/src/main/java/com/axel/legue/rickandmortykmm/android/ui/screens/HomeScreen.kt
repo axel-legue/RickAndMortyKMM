@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -26,13 +27,16 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.axel.legue.rickandmortykmm.presentation.SharedCharactersPresenter
+import com.axel.legue.rickandmortykmm.presentation.SharedEpisodesPresenter
 import org.koin.androidx.compose.get
 
 @Composable
 fun HomeScreen(
-    sharedCharactersPresenter: SharedCharactersPresenter = get()
+    sharedCharactersPresenter: SharedCharactersPresenter = get(),
+    sharedEpisodesPresenter: SharedEpisodesPresenter = get()
 ) {
     val characters = sharedCharactersPresenter.characters.collectAsState().value
+    val episodes = sharedEpisodesPresenter.episodes.collectAsState().value
 
     Surface(color = MaterialTheme.colorScheme.surface) {
         Column(
@@ -44,12 +48,27 @@ fun HomeScreen(
             LazyRow {
                 characters?.let {
                     items(it) { character ->
-                        MovieCard(
-                            modifier = Modifier.padding(horizontal = 12.dp),
-                            title = character.name,
-                            subTitle = character.species,
-                            imageUrl = character.image
-                        )
+                        with(character) {
+                            MovieCard(
+                                modifier = Modifier.padding(horizontal = 12.dp),
+                                title = name,
+                                subTitle = species,
+                                imageUrl = image
+                            )
+                        }
+                    }
+                }
+            }
+            LazyColumn {
+                episodes?.let {
+                    items(it) { episode ->
+                        with(episode) {
+                            EpisodeItem(
+                                modifier = Modifier.padding(horizontal = 12.dp),
+                                title = name,
+                                date = airDate,
+                            )
+                        }
                     }
                 }
             }
@@ -120,6 +139,38 @@ fun MovieCard(
                 Text(
                     modifier = Modifier.padding(top = 8.dp, bottom = 20.dp),
                     text = subTitle,
+                    style = MaterialTheme.typography.bodyLarge
+                )
+            }
+        }
+    )
+}
+
+@Composable
+fun EpisodeItem(
+    modifier: Modifier = Modifier,
+    title: String,
+    date: String
+) {
+    Card(
+        modifier = modifier.fillMaxWidth(),
+        shape = MaterialTheme.shapes.medium,
+        colors = CardDefaults.cardColors(),
+        border = null,
+        content = {
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Top
+            ) {
+                Text(
+                    modifier = Modifier.padding(top = 20.dp),
+                    text = title,
+                    style = MaterialTheme.typography.bodySmall
+                )
+                Text(
+                    modifier = Modifier.padding(top = 8.dp, bottom = 20.dp),
+                    text = date,
                     style = MaterialTheme.typography.bodyLarge
                 )
             }

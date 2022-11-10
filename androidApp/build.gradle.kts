@@ -32,10 +32,10 @@ tasks.withType<io.gitlab.arturbosch.detekt.DetektCreateBaselineTask>().configure
 }
 
 android {
-    namespace = "com.axel.legue.whatmovieskmm.android"
+    namespace = "com.axel.legue.rickandmortykmm.android"
     compileSdk = 33
     defaultConfig {
-        applicationId = "com.axel.legue.whatmovieskmm.android"
+        applicationId = "com.axel.legue.rickandmortykmm.android"
         minSdk = 25
         targetSdk = 33
         versionCode = 1

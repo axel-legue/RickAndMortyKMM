@@ -7,12 +7,12 @@ import io.github.aakira.napier.DebugAntilog
 import io.github.aakira.napier.Napier
 import org.koin.android.ext.koin.androidContext
 
-class WhatMoviesKmmApp : Application() {
+class RickAndMortyKMMApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
         initKoin {
-            androidContext(androidContext = this@WhatMoviesKmmApp)
+            androidContext(androidContext = this@RickAndMortyKMMApp)
         }
         if (BuildConfig.DEBUG) Napier.base(DebugAntilog())
     }
