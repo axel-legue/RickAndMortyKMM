@@ -1,10 +1,13 @@
 package com.axel.legue.rickandmortykmm.di
 
 import com.axel.legue.rickandmortykmm.data.datasources.CharactersRepositoryImpl
-import com.axel.legue.rickandmortykmm.data.network.ApiServiceImpl
+import com.axel.legue.rickandmortykmm.data.datasources.EpisodesRepositoryImpl
 import com.axel.legue.rickandmortykmm.data.network.ApiService
+import com.axel.legue.rickandmortykmm.data.network.ApiServiceImpl
 import com.axel.legue.rickandmortykmm.domain.repositories.CharactersRepository
+import com.axel.legue.rickandmortykmm.domain.repositories.EpisodesRepository
 import com.axel.legue.rickandmortykmm.presentation.SharedCharactersPresenter
+import com.axel.legue.rickandmortykmm.presentation.SharedEpisodesPresenter
 import io.github.aakira.napier.Napier
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -44,6 +47,8 @@ fun networkModule(enableNetworkLogs: Boolean = true) = module {
     }
 
     single<ApiService> { ApiServiceImpl(httpClient = get()) }
-    single<CharactersRepository> { CharactersRepositoryImpl(charactersServices = get()) }
-    single { SharedCharactersPresenter(upcomingMoviesRepository = get()) }
+    single<CharactersRepository> { CharactersRepositoryImpl(apiService = get()) }
+    single<EpisodesRepository> { EpisodesRepositoryImpl(apiService = get()) }
+    single { SharedCharactersPresenter(characterRepository = get()) }
+    single { SharedEpisodesPresenter(episodeRepository = get()) }
 }

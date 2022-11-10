@@ -1,3 +1,3 @@
 package com.axel.legue.rickandmortykmm.data.network.models
 
-data class CharactersParam(val page: Int = 1)
+data class RequestParam(val page: Int = 1)
